@@ -1,0 +1,26 @@
+---
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 120
+AlwaysBreakTemplateDeclarations: Yes
+BreakConstructorInitializers: BeforeComma
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Local includes
+  - Regex:           '".*"'
+    Priority:        0
+  # Catch2 includes
+  - Regex:           '^<catch2/.*$'
+    Priority:        1
+  # hwcpipe includes
+  - Regex:           '^<[a-z_]+/.*\.hpp>$'
+    Priority:        2
+  # stdc++ includes, e.g. <vector>
+  - Regex:           '^<[a-z_]+>$'
+    Priority:        3
+  # System includes
+  - Regex:           '^<sys/[a-z_]+>$'
+    Priority:        4
+  # All other includes.
+  - Regex:           '.*'
+    Priority:        99
